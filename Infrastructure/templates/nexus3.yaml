@@ -86,7 +86,7 @@ objects:
             initialDelaySeconds: 60
             periodSeconds: 10
             successThreshold: 1
-            timeoutSeconds: 1
+            timeoutSeconds: 5
           name: nexus3
           ports:
           - containerPort: 8081
@@ -100,7 +100,7 @@ objects:
             initialDelaySeconds: 60
             periodSeconds: 10
             successThreshold: 1
-            timeoutSeconds: 1
+            timeoutSeconds: 5
           resources:
             limits:
               memory: ${MEM_LIMITS}

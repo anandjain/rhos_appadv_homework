@@ -126,7 +126,7 @@ objects:
             initialDelaySeconds: 120
             periodSeconds: 10
             successThreshold: 1
-            timeoutSeconds: 10
+            timeoutSeconds: 30
           name: postgresql
           ports:
           - containerPort: 5432
@@ -139,7 +139,7 @@ objects:
             initialDelaySeconds: 5
             periodSeconds: 10
             successThreshold: 1
-            timeoutSeconds: 1
+            timeoutSeconds: 30
           resources:
             limits:
               memory: ${DB_MEM_LIMITS}

@@ -26,11 +26,11 @@ parameters:
 - name: MEM_REQUESTS
   description: Requested memory for pod
   required: false
-  value: 1Gi
+  value: 2Gi
 - name: MEM_LIMITS
   description: Limit for pod memory
   required: false
-  value: 2Gi
+  value: 3Gi
 - name: CPU_REQUESTS
   description: Requested CPU for pod
   required: false
@@ -98,7 +98,7 @@ objects:
           image: registry.access.redhat.com/openshift3/jenkins-2-rhel7:latest
           imagePullPolicy: IfNotPresent
           livenessProbe:
-            failureThreshold: 2
+            failureThreshold: 3
             httpGet:
               path: /login
               port: 8080
@@ -106,7 +106,7 @@ objects:
             initialDelaySeconds: 420
             periodSeconds: 360
             successThreshold: 1
-            timeoutSeconds: 240
+            timeoutSeconds: 360
           name: jenkins
           readinessProbe:
             failureThreshold: 3
@@ -114,10 +114,10 @@ objects:
               path: /login
               port: 8080
               scheme: HTTP
-            initialDelaySeconds: 3
+            initialDelaySeconds: 5
             periodSeconds: 10
             successThreshold: 1
-            timeoutSeconds: 240
+            timeoutSeconds: 360
           resources:
             limits:
               cpu: ${CPU_LIMITS}
